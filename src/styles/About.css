@@ -1,0 +1,70 @@
+/* Center and style the about page */
+.about-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background: var(--primary-color);
+    color: var(--text-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    line-height: 1.6;
+  }
+  
+  /* Headings */
+  .about-container h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  .about-container h2 {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    color: var(--button-bg);
+  }
+  
+  /* Paragraphs */
+  .about-container p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+  }
+  
+  /* List styling */
+  .about-container ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .about-container ul li {
+    background: var(--button-bg);
+    color: var(--button-text);
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+  }
+  
+  /* Links */
+  .about-container a {
+    color: var(--link-color);
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  .about-container a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Dark Mode Support */
+  .dark-mode .about-container {
+    background: #1e1e1e;
+    color: #f1f1f1;
+  }
+  
+  .dark-mode .about-container h2 {
+    color: var(--button-hover-bg);
+  }
+  
+  .dark-mode .about-container ul li {
+    background: var(--button-hover-bg);
+  }
+  

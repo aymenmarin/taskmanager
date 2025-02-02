@@ -1,16 +1,17 @@
-import React from 'react';
-import TaskItem from './TaskItem';
-import '../styles/TaskList.css';
+import React from "react";
+import TaskItem from "./TaskItem";
+import "../styles/TaskList.css";
 
-function TaskList({ tasks, toggleTaskCompletion, deleteTask }) {
+function TaskList({ tasks, toggleTask, deleteTask, editTask }) {
   return (
     <ul className="task-list">
       {tasks.map((task) => (
         <TaskItem 
           key={task.id} 
           task={task} 
-          toggleTaskCompletion={toggleTaskCompletion} 
+          toggleTask={toggleTask} 
           deleteTask={deleteTask} 
+          editTask={editTask} // ✅ Pass editTask properly
         />
       ))}
     </ul>

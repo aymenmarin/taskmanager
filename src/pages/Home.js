@@ -1,42 +1,41 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import TaskList from '../components/TaskList';
 import TaskForm from '../components/TaskForm';
 
 function Home() {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState([
+    { id: 1, text: 'Learn React Basics', completed: false },
+    { id: 2, text: 'Understand JSX', completed: true },
+    { id: 3, text: 'Build Components', completed: false }
+  ]);
 
-  // Load tasks from local storage
-  useEffect(() => {
-    const storedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
-    setTasks(storedTasks);
-  }, []);
-
-  // Save tasks to local storage
-  useEffect(() => {
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-  }, [tasks]);
+  const [filter, setFilter] = useState('all');
 
   const addTask = (taskText) => {
-    const newTask = { id: Date.now(), text: taskText, completed: false };
+    const newTask = { id: tasks.length + 1, text: taskText, completed: false };
     setTasks([...tasks, newTask]);
   };
 
-  const toggleTaskCompletion = (taskId) => {
-    setTasks(tasks.map(task =>
-      task.id === taskId ? { ...task, completed: !task.completed } : task
-    ));
+  const toggleTask = (id) => {
+    setTasks(tasks.map(task => task.id === id ? { ...task, completed: !task.completed } : task));
   };
 
-  const deleteTask = (taskId) => {
-    if (window.confirm("Are you sure you want to delete this task?")) {
-      setTasks(tasks.filter(task => task.id !== taskId));
-    }
-  };
+  // Filter tasks
+  const filteredTasks = tasks.filter(task => {
+    if (filter === 'completed') return task.completed;
+    if (filter === 'unfinished') return !task.completed;
+    return true;
+  });
 
   return (
-    <div>
+    <div className="home-container">
       <TaskForm addTask={addTask} />
-      <TaskList tasks={tasks} toggleTaskCompletion={toggleTaskCompletion} deleteTask={deleteTask} />
+      <div className="filter-buttons">
+        <button onClick={() => setFilter('all')}>All</button>
+        <button onClick={() => setFilter('completed')}>Completed</button>
+        <button onClick={() => setFilter('unfinished')}>Unfinished</button>
+      </div>
+      <TaskList tasks={filteredTasks} toggleTask={toggleTask} />
     </div>
   );
 }

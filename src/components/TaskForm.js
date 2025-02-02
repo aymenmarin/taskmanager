@@ -1,26 +1,25 @@
-import React, { useState } from 'react';
-import '../styles/TaskForm.css';
+import React, { useState } from "react";
+import "../styles/TaskForm.css";
 
 function TaskForm({ addTask }) {
-  const [taskText, setTaskText] = useState('');
+  const [taskText, setTaskText] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (taskText.trim()) {
-      addTask(taskText);
-      setTaskText('');
-    }
+    if (taskText.trim() === "") return;
+    addTask(taskText);
+    setTaskText("");
   };
 
   return (
-    <form onSubmit={handleSubmit} className="task-form">
+    <form className="task-form" onSubmit={handleSubmit}>
       <input
         type="text"
+        placeholder="Add a new task..."
         value={taskText}
         onChange={(e) => setTaskText(e.target.value)}
-        placeholder="Enter a task..."
       />
-      <button type="submit">Add Task</button>
+      <button type="submit">➕ Add</button>
     </form>
   );
 }

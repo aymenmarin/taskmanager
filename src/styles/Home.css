@@ -1,0 +1,38 @@
+.home-container {
+  width: 90%; /* Makes it larger while being responsive */
+  max-width: 600px; /* Increased size */
+  padding: 30px; /* More padding for better spacing */
+  background: var(--bg-primary);
+  color: var(--text-color);
+  border-radius: 12px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  overflow: hidden;
+  margin: 50px auto; /* Centers it properly */
+}
+
+/* Centering and spacing improvements */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: var(--bg-secondary);
+}
+
+/* Button improvements */
+.clear-btn {
+  margin-top: 15px;
+  padding: 10px 15px;
+  background: red;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s ease-in-out;
+}
+
+.clear-btn:hover {
+  background: darkred;
+}

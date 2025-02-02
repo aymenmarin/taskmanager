@@ -1,27 +1,15 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import "../styles/Header.css";
+import React, { useContext } from "react";
+import { ThemeContext } from "../context/ThemeContext";
 
-function Header({ title }) {
-  const [darkMode, setDarkMode] = useState(
-    localStorage.getItem("darkMode") === "true"
-  );
-
-  useEffect(() => {
-    document.body.classList.toggle("dark-mode", darkMode);
-    localStorage.setItem("darkMode", darkMode);
-  }, [darkMode]);
+function Header() {
+  const { darkMode, setDarkMode } = useContext(ThemeContext);
 
   return (
-    <header className={`header ${darkMode ? "dark" : "light"}`}>
-      <h1>{title}</h1>
-      <nav className="nav">
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-        <button className="toggle-btn" onClick={() => setDarkMode(!darkMode)}>
-          {darkMode ? "🌞 Light Mode" : "🌙 Dark Mode"}
-        </button>
-      </nav>
+    <header className="header">
+      <h1>Task Manager</h1>
+      <button className="toggle-dark-mode" onClick={() => setDarkMode(!darkMode)}>
+        {darkMode ? "☀️ Light Mode" : "🌙 Dark Mode"}
+      </button>
     </header>
   );
 }

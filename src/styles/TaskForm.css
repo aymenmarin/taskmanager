@@ -1,26 +1,24 @@
 .task-form {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 15px;
-  }
-  
-  .task-form input {
-    flex: 1;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .task-form button {
-    background: #6200ea;
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .task-form button:hover {
-    background: #4b00b5;
-  }
-  
+  display: flex;
+  gap: 10px;
+}
+
+.task-form input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.task-form button {
+  background: #6200ea;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.task-form button:hover {
+  background: #3700b3;
+}
