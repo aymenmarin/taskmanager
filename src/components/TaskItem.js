@@ -25,9 +25,9 @@ function TaskItem({ task, toggleTask, deleteTask, editTask }) {
         </>
       ) : (
         <>
-          <span onClick={() => toggleTask(task.id)}>{task.text}</span>
+          <span onClick={() => toggleTask(task._id)}>{task.text}</span>
           <button onClick={() => setIsEditing(true)} className="edit-btn">Edit</button>
-          <button onClick={() => deleteTask(task.id)} className="delete-btn">Delete</button>
+          <button onClick={() => deleteTask(task._id)} className="delete-btn">Delete</button>
         </>
       )}
     </li>

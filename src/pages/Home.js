@@ -3,13 +3,23 @@ import TaskList from '../components/TaskList';
 import TaskForm from '../components/TaskForm';
 
 function Home() {
-  const [tasks, setTasks] = useState([
-    { id: 1, text: 'Learn React Basics', completed: false },
-    { id: 2, text: 'Understand JSX', completed: true },
-    { id: 3, text: 'Build Components', completed: false }
-  ]);
+  const [tasks, setTasks] = useState([]);
 
   const [filter, setFilter] = useState('all');
+  //fetch tasks from backend
+  useEffect(
+    ()=>{
+      const loadTasks=async()=>{
+        try{
+          const response=await fetchTasks();
+          setTasks(response.data);
+
+        }catch(err){
+          console.error("error fetching",error)
+        }
+      }
+    }
+  )
 
   const addTask = (taskText) => {
     const newTask = { id: tasks.length + 1, text: taskText, completed: false };
